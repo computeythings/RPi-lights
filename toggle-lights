@@ -1,0 +1,10 @@
+#!/bin/bash
+
+status1="$(/opt/flux/flux_led.py bulb1 -ti)"
+status2="$(/opt/flux/flux_led.py bulb2 -ti)"
+status3="$(/opt/flux/flux_led.py bulb3 -ti)"
+if [[ $status1 == *"OFF"* ]] || [[ $status2 == *"OFF"* ]] || [[ $status3 == *"OFF"* ]] ; then
+    /opt/flux/flux_led.py bulb1 bulb2 bulb3 --on
+else
+    /opt/flux/flux_led.py bulb1 bulb2 bulb3 --off
+fi
